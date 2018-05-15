@@ -1,0 +1,8 @@
+# 移植opencv到arm平台
+# 使用cmake-gui
+# 取消BUILD_TEST 选项
+# 选择BUILD_PNG  选项
+# 取消BUILD_PERF_TEST 选项
+# abs函数的重载，需要将abs()函数，替换成fabs()函数 /tmp/opencv/modules/imgproc/src/drawing.cpp +1026
+# 取消BUILD_opencv_apps 选项
+
