@@ -45,6 +45,8 @@
 #ifndef OPENCV_CORE_CVDEF_H
 #define OPENCV_CORE_CVDEF_H
 
+#include <atomic.h>
+
 //! @addtogroup core_utils
 //! @{
 
@@ -432,7 +434,7 @@ Cv64suf;
        // version for gcc >= 4.7
 #      define CV_XADD(addr, delta) (int)__atomic_fetch_add((unsigned*)(addr), (unsigned)(delta), __ATOMIC_ACQ_REL)
 #    else
-#      define CV_XADD(addr, delta) (int)__sync_fetch_and_add((unsigned*)(addr), (unsigned)(delta))
+#      define CV_XADD(addr, delta) (int)atomicIncrement((int volatile *)(addr), (unsigned)(delta))
 #    endif
 #  endif
 #elif defined _MSC_VER && !defined RC_INVOKED

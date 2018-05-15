@@ -5,4 +5,9 @@
 # 取消BUILD_PERF_TEST 选项
 # abs函数的重载，需要将abs()函数，替换成fabs()函数 /tmp/opencv/modules/imgproc/src/drawing.cpp +1026
 # 取消BUILD_opencv_apps 选项
+# CMAKE_EXE_*_FLAGS=-lpthread -lrt
+
+arm-none-linux-gnueabi-g++ atomic.cxx -lgcc -fPIC -shared -o libatomic.so
+然后将libatomic.so 放入编译器的lib路径下
+    将atomic.h放入编译器的include的路径下
 
